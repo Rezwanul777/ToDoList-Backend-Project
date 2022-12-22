@@ -13,7 +13,7 @@ const helmet=require('helmet')
 const cors=require('cors')
 const xssClean=require('xss-clean');
 
-// mongoose database
+// mongoose database import
 const { mongoose } = require('mongoose');
 
 //security middleware implement
@@ -36,5 +36,27 @@ const limiter = rateLimit({
 
 // Apply the rate limiting middleware to all requests
 app.use(limiter)
+
+// monogodb database connection
+
+let URI="mongodb://127.0.0.1:27017/Todo"
+let OPTION={user:'',pass:''}
+mongoose.set('strictQuery', false)
+mongoose.connect(URI,OPTION,(error)=>{
+   
+   console.log('Database connected');
+   console.log(error);
+})
+
+// Router impletment
+app.use('/api/v1',router)
+
+// undefined router
+
+app.use('*',(req,res)=>{
+   res.status(404).json({status:"not found",data:"Failed"})
+})
+
+module.exports=app;
 
 
