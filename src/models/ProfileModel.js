@@ -1,15 +1,15 @@
 const mongoose=require("mongoose")
 
-const DataShema=mongoose.Schema({
+const DataSchema=mongoose.Schema({
    firstName:{type:String},
    lastName:{type:String},
    emailAddress:{type:String},
    mobileNumber:{type:String},
    city:{type:String},
-   userName:{type:String},
+   userName:{type:String,unique:true},
    password:{type:String},
 },{versionKey:false});
 
-const ProfileModel=mongoose.model("Profile",DataShema);
+const ProfileModel=mongoose.model("profiles",DataSchema);
 
 module.exports=ProfileModel;

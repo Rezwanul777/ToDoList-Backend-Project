@@ -14,7 +14,7 @@ const cors=require('cors')
 const xssClean=require('xss-clean');
 
 // mongoose database import
-const { mongoose } = require('mongoose');
+const  mongoose  = require('mongoose');
 
 //security middleware implement
 app.use(hpp());
@@ -39,8 +39,8 @@ app.use(limiter)
 
 // monogodb database connection
 
-let URI="mongodb://127.0.0.1:27017/Todo"
-let OPTION={user:'',pass:''}
+let URI="mongodb://127.0.0.1:27017/TodoList"
+let OPTION={user:'',pass:'',autoIndex:true}
 mongoose.set('strictQuery', false)
 mongoose.connect(URI,OPTION,(error)=>{
    
