@@ -6,8 +6,9 @@ const DataSchema=mongoose.Schema({
    emailAddress:{type:String},
    mobileNumber:{type:String},
    city:{type:String},
-   userName:{type:String,unique:true},
+   userName:{type:String},
    password:{type:String},
+   //gender:{type:String},
 },{versionKey:false});
 
 const ProfileModel=mongoose.model("profiles",DataSchema);
